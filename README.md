@@ -1,6 +1,5 @@
 # Project Proposal Template
-Short Title
-
+Short Title  
 Evan Lesnefsky
 
 ## Interaction Description
