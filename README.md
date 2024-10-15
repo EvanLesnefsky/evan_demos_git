@@ -5,5 +5,5 @@ Evan Lesnefsky
 ## Interaction Description
 What is the interaction, and clearly list the versions you will implement
 
-## Storyboards
+## Storyboard
 Provide storyboard here
