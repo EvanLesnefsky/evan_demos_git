@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5a1f07dc5afe854f9f12a4194aca3fb, type: 3}
   m_Name: WebGL
   m_EditorClassIdentifier: 
-  features: []
+  features:
+  - {fileID: 1732200987753209993}
   m_renderMode: 1
   m_autoColorSubmissionMode: 1
   m_colorSubmissionModes:
@@ -469,24 +470,24 @@ MonoBehaviour:
   m_Name: Standalone
   m_EditorClassIdentifier: 
   features:
-  - {fileID: 1277740135411674469}
-  - {fileID: -5409267851179472745}
-  - {fileID: -2992156706135347684}
-  - {fileID: 7597830992588181189}
+  - {fileID: -4867164937809245328}
   - {fileID: -1899205050955458935}
+  - {fileID: 5082050395469398712}
   - {fileID: 7015835492024605299}
   - {fileID: 6203579429587825377}
-  - {fileID: 3020671852625631707}
-  - {fileID: -4867164937809245328}
-  - {fileID: 5082050395469398712}
+  - {fileID: 7597830992588181189}
   - {fileID: -8304351422106001744}
   - {fileID: -5757352930750296802}
+  - {fileID: 3020671852625631707}
+  - {fileID: 1277740135411674469}
   - {fileID: 5067450013463144412}
   - {fileID: 2753789940245695675}
   - {fileID: 5507293048178723824}
   - {fileID: 1722423060593717956}
+  - {fileID: -5409267851179472745}
   - {fileID: -3857914422699109675}
   - {fileID: 8296035354670430937}
+  - {fileID: -2992156706135347684}
   m_renderMode: 0
   m_autoColorSubmissionMode: 1
   m_colorSubmissionModes:
@@ -547,11 +548,11 @@ MonoBehaviour:
   m_Name: XrPerformanceSettingsFeature WebGL
   m_EditorClassIdentifier: 
   m_enabled: 0
-  nameUi: 
-  version: 
-  featureIdInternal: 
-  openxrExtensionStrings: 
-  company: 
+  nameUi: XR Performance Settings
+  version: 1.0.0
+  featureIdInternal: com.unity.openxr.feature.extension.performance_settings
+  openxrExtensionStrings: XR_EXT_performance_settings
+  company: Unity
   priority: 0
   required: 0
 --- !u!114 &2235386739475937539
@@ -741,22 +742,22 @@ MonoBehaviour:
   m_Name: Android
   m_EditorClassIdentifier: 
   features:
-  - {fileID: -4991694086963567729}
-  - {fileID: -3256561817883160333}
-  - {fileID: -6086399226506261840}
-  - {fileID: -8414186930871069584}
+  - {fileID: -495261751149285054}
   - {fileID: 2235386739475937539}
+  - {fileID: 4914851518704656994}
   - {fileID: -4580436579484274019}
   - {fileID: 6230532127917213864}
-  - {fileID: -1007290324840326133}
-  - {fileID: 6191712010085491084}
-  - {fileID: -495261751149285054}
-  - {fileID: 4914851518704656994}
   - {fileID: 5334558063051258675}
+  - {fileID: -4991694086963567729}
+  - {fileID: -1007290324840326133}
+  - {fileID: -3256561817883160333}
   - {fileID: -6685596103840964779}
+  - {fileID: 6191712010085491084}
   - {fileID: -1732360690052733040}
   - {fileID: -3465257370404214830}
+  - {fileID: -6086399226506261840}
   - {fileID: -2131481153726147014}
+  - {fileID: -8414186930871069584}
   m_renderMode: 1
   m_autoColorSubmissionMode: 1
   m_colorSubmissionModes:
