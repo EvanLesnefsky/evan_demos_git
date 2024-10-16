@@ -9,4 +9,4 @@ The interaction is going to comprise of three different ways of climbing over an
 * **Climbing Hands:** Develop climbing hands that enable you to manually scale walls by grabbing onto any part of the surface and pulling yourself up.
 
 ## Storyboard
-IMG_0530.jpg
+(IMG_0530.jpg)
