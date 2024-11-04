@@ -9,7 +9,7 @@ The interaction is going to comprise of three different ways of climbing over an
 * **Ball Teleportation:** A ball you can shoot that teleports you to its landing point upon collision.
 
 ## Storyboard
-![](IMG_0530.jpg)
+![](IMG_0767.jpg)
 
 ## Observations
 Some observations I made during the user test is that they typically knew how to use each interaction after reading how to use it on the wall. However, they didn't know how to switch the interaction type until I told them to press both middle fingers down (the grip buttons). All of the users enjoyed the experience and some said that it was their favorite interaction out of the whole class, which I really appreciated. After some feedback regarding not being able to do the obstacle course without hitting your head on the rings, I quickly reduced the capsule collider hitbox to make the experience more enjoyable.
