@@ -18,13 +18,8 @@ public class AudioSpeedControl : MonoBehaviour
  
     private void Update()
     {
-        // Calculate player speed
         float playerSpeed = playerRigidbody.velocity.magnitude;
- 
-        // Map player speed to volume range
         float volume = Mathf.Lerp(minVolume, maxVolume, Mathf.InverseLerp(0, maxSpeed, playerSpeed));
- 
-        // Set audio source volume based on player speed
         audioSource.volume = volume;
     }
 }

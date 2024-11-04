@@ -12,7 +12,7 @@ public class XRClimbing : MonoBehaviour
     public Transform leftHandTransform;
     public Transform rightHandTransform;
 
-    public float grabDistance = 0.2f; // Max distance to allow climbing
+    public float grabDistance = 0.2f;
     public LayerMask climbableLayer;
 
     private Rigidbody playerRigidbody;
@@ -33,7 +33,7 @@ public class XRClimbing : MonoBehaviour
         rightHandGrabAction.action.Enable();
     }
 
-    private void FixedUpdate() // Use FixedUpdate for physics calculations
+    private void FixedUpdate()
     {
         HandleHandClimbing(leftHandGrabAction, leftHandTransform, ref isLeftGrabbing, ref lastLeftHandPosition);
         HandleHandClimbing(rightHandGrabAction, rightHandTransform, ref isRightGrabbing, ref lastRightHandPosition);
@@ -41,7 +41,6 @@ public class XRClimbing : MonoBehaviour
 
     private void HandleHandClimbing(InputActionReference handGrabAction, Transform handTransform, ref bool isGrabbing, ref Vector3 lastHandPosition)
     {
-        // Check if the hand grab action is performed and within distance of a climbable object
         if (handGrabAction.action.ReadValue<float>() > 0.1f && IsHandNearClimbable(handTransform.position))
         {
             if (!isGrabbing)
@@ -51,13 +50,9 @@ public class XRClimbing : MonoBehaviour
             }
             else
             {
-                // Calculate the vertical movement of the hand
                 Vector3 handMovement = handTransform.position - lastHandPosition;
-
-                // Apply only vertical movement to the player
                 playerRigidbody.MovePosition(playerRigidbody.position + new Vector3(0, handMovement.y, 0));
-
-                lastHandPosition = handTransform.position; // Update last hand position
+                lastHandPosition = handTransform.position;
             }
         }
         else
@@ -68,7 +63,6 @@ public class XRClimbing : MonoBehaviour
 
     private bool IsHandNearClimbable(Vector3 handPosition)
     {
-        // Check if there's a climbable object within the grab distance of the hand
         return Physics.CheckSphere(handPosition, grabDistance, climbableLayer);
     }
 }

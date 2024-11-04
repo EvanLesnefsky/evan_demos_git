@@ -5,25 +5,25 @@ using UnityEngine.InputSystem;
 
 public class XRLaunchMechanism : MonoBehaviour
 {
-    public Transform leftHandTransform; // Assign your left hand XR transform here
-    public Transform rightHandTransform; // Assign your right hand XR transform here
-    public Transform arrowTransform; // Assign the arrow 3D model here (e.g., a cylinder or arrow object)
-    public float distanceMultiplier = 10f; // Multiplier for launch force based on hand distance
-    public float maxLaunchForce = 100f; // Maximum allowed launch force
-    public float arrowMaxLength = 5f; // Maximum length of the arrow to visually represent max launch force
+    public Transform leftHandTransform;
+    public Transform rightHandTransform;
+    public Transform arrowTransform;
+    public float distanceMultiplier = 10f;
+    public float maxLaunchForce = 100f;
+    public float arrowMaxLength = 5f;
 
-    public InputActionReference leftHandPressAction;  // Input Action Reference for left hand press
-    public InputActionReference rightHandActivateAction; // Input Action Reference for right hand activation
+    public InputActionReference leftHandPressAction;
+    public InputActionReference rightHandActivateAction;
 
     private bool isLeftHandPressed = false;
     private bool isRightHandPressed = false;
-    private bool isRightHandHeld = false; // Track if right hand is being held down
+    private bool isRightHandHeld = false;
 
     private void OnEnable()
     {
         leftHandPressAction.action.performed += OnLeftHandPressed;
         rightHandActivateAction.action.performed += OnRightHandPressed;
-        rightHandActivateAction.action.canceled += OnRightHandReleased; // Detect when the right hand is released
+        rightHandActivateAction.action.canceled += OnRightHandReleased;
 
         leftHandPressAction.action.Enable();
         rightHandActivateAction.action.Enable();
@@ -34,7 +34,6 @@ public class XRLaunchMechanism : MonoBehaviour
         leftHandPressAction.action.performed -= OnLeftHandPressed;
         rightHandActivateAction.action.performed -= OnRightHandPressed;
         rightHandActivateAction.action.canceled -= OnRightHandReleased;
-
         leftHandPressAction.action.Disable();
         rightHandActivateAction.action.Disable();
     }
@@ -47,7 +46,7 @@ public class XRLaunchMechanism : MonoBehaviour
         }
         else
         {
-            arrowTransform.gameObject.SetActive(false); // Hide the arrow when not pulling
+            arrowTransform.gameObject.SetActive(false);
         }
     }
 
@@ -76,17 +75,12 @@ public class XRLaunchMechanism : MonoBehaviour
 
     private void LaunchPlayer()
     {
-        // Calculate the distance between the left and right hands
         float distance = Vector3.Distance(leftHandTransform.position, rightHandTransform.position);
-
-        // Calculate the launch force based on the distance
         float launchForce = Mathf.Clamp(distance * distanceMultiplier, 0, maxLaunchForce);
-
-        // Apply force in the direction the left hand is facing
         Rigidbody rb = GetComponent<Rigidbody>();
         if (rb != null)
         {
-            Vector3 launchDirection = leftHandTransform.forward; // Launch in the direction the left hand is facing
+            Vector3 launchDirection = leftHandTransform.forward;
             rb.AddForce(launchDirection * launchForce, ForceMode.Impulse);
         }
     }
@@ -96,29 +90,16 @@ public class XRLaunchMechanism : MonoBehaviour
         isLeftHandPressed = false;
         isRightHandPressed = false;
         isRightHandHeld = false;
-        arrowTransform.gameObject.SetActive(false); // Hide the arrow when resetting state
+        arrowTransform.gameObject.SetActive(false);
     }
 
     private void UpdateArrow()
     {
-        // Show the arrow
         arrowTransform.gameObject.SetActive(true);
-
-        // Calculate the distance between hands
         float distance = Vector3.Distance(leftHandTransform.position, rightHandTransform.position);
-
-        // Calculate the arrow's length (capped at arrowMaxLength)
         float arrowLength = Mathf.Clamp(distance, 0, arrowMaxLength);
-
-        // Scale the arrow along its local Z-axis based on the hand distance
-        // The assumption is that the cylinder (arrow) stretches along the Z-axis.
         arrowTransform.localScale = new Vector3(arrowTransform.localScale.x, arrowTransform.localScale.y, arrowLength);
-
-        // Position the arrow so that it grows from the bottom (base) end
-        // The base will stay at the left hand position, and the arrow will extend out in the forward direction.
         arrowTransform.position = leftHandTransform.position + (arrowTransform.forward * (arrowLength / 2));
-
-        // Rotate the arrow to point in the direction of the left hand's forward vector
         arrowTransform.rotation = Quaternion.LookRotation(leftHandTransform.forward);
     }
 }
