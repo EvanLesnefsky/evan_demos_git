@@ -58,6 +58,3 @@ Some observations I made during the user test is that they typically knew how to
     4. Self-launching bow because it was very predictable and easy to use, and the way it was designed was what you would expect for bow movement; simple but gave you enough control
     5. Ball because what you see is what you get, so wherever you shoot the ball is where you go; only issue is that it was harder to predict where you would land because you couldn't see where the ball was landing over a wall
     6. Add curve trajectory for ball
-
-## Video Demonstration
-![](com.oculus.vrshell-20241104-142440-0.mp4)
